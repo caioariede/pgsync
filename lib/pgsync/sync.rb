@@ -47,9 +47,9 @@ module PgSync
           Task.new(source: source, destination: destination, config: config, table: task[:table], opts: opts.merge(sql: task[:sql]))
         end
 
-      if opts[:in_batches] && tasks.size > 1
-        raise Error, "Cannot use --in-batches with multiple tables"
-      end
+      # if opts[:in_batches] && tasks.size > 1
+      #   raise Error, "Cannot use --in-batches with multiple tables"
+      # end
 
       confirm_tables_exist(source, tasks, "source")
 
